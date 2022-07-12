@@ -20,7 +20,8 @@
 
     <title>Hello, world!</title>
 
-    <script src="main.js"></script>
+    <script src="scripts/pointManaging.js"></script>
+    <script src="scripts/userManaging.js"></script>
   </head>
   <body>
     <!-- Sidebar -->
@@ -28,7 +29,7 @@
       <div class="position-sticky">
         <div class="list-group list-group-flush mx-3 mt-5">
           <div class="form-group">
-            <label for="exampleInputEmail1"
+            <label for="nameOfNewPlayer"
               >Enter the Nickname of a new Player</label
             >
             <input
@@ -41,12 +42,19 @@
           <button type="submit" class="btn btn-primary" onclick="addPlayer()">
             Add Player
           </button>
-          <button
-            type="button"
-            class="btn btn-danger mt-5"
-            onclick="deletePlayer()"
-          >
-            Delete last Player
+          <div class="form-group mt-5">
+            <label for="deletePlayer"
+              >Enter the Nickname of the Player you wish to delete</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="deletePlayer"
+              placeholder="Fancy Nickname"
+            />
+          </div>
+          <button type="button" class="btn btn-danger" onclick="deletePlayer()">
+            Delete Player
           </button>
         </div>
       </div>
@@ -56,14 +64,14 @@
       <table class="table" id="table">
         <thead>
           <tr id="nameField">
-            <th scope="col">
+            <th scope="col" class="hidden_template">
               <h1 class="p-3 match-width" id="name_1">Name</h1>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr id="add4PointsField">
-            <td>
+            <td class="hidden_template">
               <button
                 id="add4_1"
                 type="button"
@@ -75,7 +83,7 @@
             </td>
           </tr>
           <tr id="add1PointsField">
-            <td>
+            <td class="hidden_template"">
               <button
                 id="add1_1"
                 type="button"
@@ -87,14 +95,14 @@
             </td>
           </tr>
           <tr id="pointsField">
-            <td>
+            <td class="hidden_template">
               <h1 id="points_1" class="p-3 pointsFieldInner match-width">
                 0 Points
               </h1>
             </td>
           </tr>
           <tr id="sub1PointsField">
-            <td>
+            <td class="hidden_template">
               <button
                 id="sub1_1"
                 type="button"
@@ -106,7 +114,7 @@
             </td>
           </tr>
           <tr id="sub4PointsField">
-            <td>
+            <td class="hidden_template">
               <button
                 id="sub4_1"
                 type="button"
@@ -118,7 +126,7 @@
             </td>
           </tr>
           <tr id="wrongAnswerField">
-            <td>
+            <td class="hidden_template">
               <button
                 id="wrong_1"
                 type="button"
