@@ -23,33 +23,42 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <nav
-        id="sidebarMenu"
-        class="collapse d-lg-block sidebar collapse bg-white"
-      >
-        <div class="position-sticky">
-          <div class="list-group list-group-flush mx-3 mt-5">
-            <button type="button" class="btn btn-primary" onclick="addPlayer()">
-              Add Player
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger mt-5"
-              onclick="deletePlayer()"
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-5">
+          <div class="form-group">
+            <label for="exampleInputEmail1"
+              >Enter the Nickname of a new Player</label
             >
-              Delete last Player
-            </button>
+            <input
+              type="text"
+              class="form-control"
+              id="nameOfNewPlayer"
+              placeholder="Fancy Nickname"
+            />
           </div>
+          <button type="submit" class="btn btn-primary" onclick="addPlayer()">
+            Add Player
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger mt-5"
+            onclick="deletePlayer()"
+          >
+            Delete last Player
+          </button>
         </div>
-      </nav>
-      <!-- Sidebar -->
-
-      <table class="table">
+      </div>
+    </nav>
+    <!-- Sidebar -->
+    <div class="container">
+      <table class="table" id="table">
         <thead>
           <tr id="nameField">
-            <th scope="col"><h1 class="w-75 p-3">Name</h1></th>
+            <th scope="col">
+              <h1 class="p-3 match-width" id="name_1">Name</h1>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +67,7 @@
               <button
                 id="add4_1"
                 type="button"
-                class="btn btn-success w-75 p-3"
+                class="btn btn-success p-3 match-width"
                 onclick="add4Points(this.id)"
               >
                 Add 4 Points
@@ -70,7 +79,7 @@
               <button
                 id="add1_1"
                 type="button"
-                class="btn btn-success w-75 p-3"
+                class="btn btn-success p-3 match-width"
                 onclick="add1Point(this.id)"
               >
                 Add 1 Points
@@ -78,14 +87,18 @@
             </td>
           </tr>
           <tr id="pointsField">
-            <td><h1 id="points_1" class="w-75 p-3">0 Points</h1></td>
+            <td>
+              <h1 id="points_1" class="p-3 pointsFieldInner match-width">
+                0 Points
+              </h1>
+            </td>
           </tr>
           <tr id="sub1PointsField">
             <td>
               <button
                 id="sub1_1"
                 type="button"
-                class="btn btn-danger w-75 p-3"
+                class="btn btn-danger p-3 match-width"
                 onclick="sub1Point(this.id)"
               >
                 Subtract 1 Point
@@ -97,10 +110,22 @@
               <button
                 id="sub4_1"
                 type="button"
-                class="btn btn-danger w-75 p-3"
+                class="btn btn-danger p-3 match-width"
                 onclick="sub4Points(this.id)"
               >
                 Subtract 4 Points
+              </button>
+            </td>
+          </tr>
+          <tr id="wrongAnswerField">
+            <td>
+              <button
+                id="wrong_1"
+                type="button"
+                class="btn btn-danger p-3 match-width"
+                onclick="wrongAnswer(this.id)"
+              >
+                Wrong answer
               </button>
             </td>
           </tr>
