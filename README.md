@@ -1,4 +1,4 @@
-# quizCounter
+# QuizCounter
 
 A simple tool to count Points for multiple Contestants. Made with Bootstrap and plain JS.
 Features:
