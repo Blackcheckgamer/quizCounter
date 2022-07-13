@@ -1,5 +1,5 @@
 let minID = 1;
-let userList = new Array("Name");
+let userList = new Array();
 
 function addPlayer() {
   let element = document.getElementById("nameOfNewPlayer");
@@ -15,9 +15,14 @@ function addPlayer() {
   }
 }
 
-function deletePlayer() {
-  element = document.getElementById("deletePlayer");
-  let nickname = element.value;
+function deleteAllPlayers() {
+  userList.forEach((element) => {
+    deleteElements(element);
+  });
+  userList = [];
+}
+
+function deletePlayerByName(nickname) {
   if (nickname == "") {
     window.alert("Enter a nickname");
   } else if (!userList.includes(nickname)) {
@@ -28,6 +33,12 @@ function deletePlayer() {
     userList.splice(index, 1);
     deleteElements(nickname);
   }
+}
+
+function deletePlayer() {
+  element = document.getElementById("deletePlayer");
+  let nickname = element.value;
+  deletePlayerByName(nickname);
 }
 function deleteElements(nickname) {
   document.getElementById("name_" + nickname).parentNode.remove();

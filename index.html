@@ -26,7 +26,8 @@
   <body>
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-      <div class="position-sticky">
+      <div class="position-sticky text-center">
+        <h1>QuizCounter</h1>
         <div class="list-group list-group-flush mx-3 mt-5">
           <div class="form-group">
             <label for="nameOfNewPlayer"
@@ -55,6 +56,14 @@
           </div>
           <button type="button" class="btn btn-danger" onclick="deletePlayer()">
             Delete Player
+          </button>
+          <div class="mt-5"></div>
+          <button
+            type="button"
+            class="btn btn-danger"
+            onclick="deleteAllPlayers()"
+          >
+            Delete all Players
           </button>
         </div>
       </div>
