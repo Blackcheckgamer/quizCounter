@@ -8,6 +8,8 @@ function addPlayer() {
     window.alert("Enter a nickname");
   } else if (userList.includes(nickname)) {
     window.alert("Nickname already in use");
+  } else if (nickname == "1") {
+    window.alert("Please choose another Nickname");
   } else {
     element.value = "";
     userList.push(nickname);
