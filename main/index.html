@@ -57,13 +57,48 @@
           <button type="button" class="btn btn-danger" onclick="deletePlayer()">
             Delete Player
           </button>
-          <div class="mt-5"></div>
+          <div class="mt-2"></div>
           <button
             type="button"
             class="btn btn-danger"
             onclick="deleteAllPlayers()"
           >
             Delete all Players
+          </button>
+          <div class="mt-5"></div>
+          <div class="form-group">
+            <label for="numberForWrongAnswer"
+              >Enter points for a wrong answer</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="numberForWrongAnswer"
+              value="4"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Enter the points that the other players should get for an
+              incorrect answer"
+            />
+          </div>
+          <div class="mt-2"></div>
+          <div class="form-group">
+            <label for="numberForCorrectAnswer"
+              >Enter points for a correct answer</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="numberForCorrectAnswer"
+              value="4"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="Enter the points that the player should get for an
+              correct answer"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" onclick="setPoints()">
+            Set Points
           </button>
         </div>
       </div>
@@ -84,7 +119,7 @@
               <button
                 id="add4_1"
                 type="button"
-                class="btn btn-success p-3 match-width"
+                class="btn btn-success p-3 match-width add4Button"
                 onclick="add4Points(this.id)"
               >
                 Add 4 Points
@@ -99,7 +134,7 @@
                 class="btn btn-success p-3 match-width"
                 onclick="add1Point(this.id)"
               >
-                Add 1 Points
+                Add 1 Point
               </button>
             </td>
           </tr>
@@ -127,7 +162,7 @@
               <button
                 id="sub4_1"
                 type="button"
-                class="btn btn-danger p-3 match-width"
+                class="btn btn-danger p-3 match-width sub4Button"
                 onclick="sub4Points(this.id)"
               >
                 Subtract 4 Points
