@@ -6,3 +6,4 @@ Features:
 - Add and Substract Points for each Contestant
 - Set the amount of Points rewarded/removed
 - Add Points for every Contestent but one
+- Load and display Questions from a JSON file
