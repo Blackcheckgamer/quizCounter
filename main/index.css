@@ -16,3 +16,6 @@
 .hidden_template {
   display: none;
 }
+#questionContainer {
+  display: none;
+}
