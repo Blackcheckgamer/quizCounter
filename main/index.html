@@ -21,11 +21,12 @@
     <title>QuizCounter</title>
 
     <script src="scripts/pointManaging.js"></script>
+    <script src="scripts/questionManaging.js" async></script>
     <script src="scripts/userManaging.js"></script>
   </head>
   <body>
     <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar bg-white">
       <div class="position-sticky text-center">
         <h1>QuizCounter</h1>
         <div class="list-group list-group-flush mx-3 mt-5">
@@ -100,89 +101,132 @@
           <button type="submit" class="btn btn-primary" onclick="setPoints()">
             Set Points
           </button>
+          <div class="mt-2"></div>
+          <div class="form-group">
+            <label for="inputJSON">Enter Questions in JSON Format</label>
+            <input
+              type="file"
+              class="form-control"
+              id="inputJSON"
+              accept=".json"
+              data-toggle="tooltip"
+              data-placement="bottom"
+              title="The Format can't be checked yet. Use at your own discretion"
+              multiple="false"
+            />
+          </div>
         </div>
       </div>
     </nav>
     <!-- Sidebar -->
     <div class="container">
-      <table class="table" id="table">
-        <thead>
-          <tr id="nameField">
-            <th scope="col" class="hidden_template">
-              <h1 class="p-3 match-width" id="name_1">Name</h1>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="add4PointsField">
-            <td class="hidden_template">
-              <button
-                id="add4_1"
-                type="button"
-                class="btn btn-success p-3 match-width add4Button"
-                onclick="add4Points(this.id)"
-              >
-                Add 4 Points
-              </button>
-            </td>
-          </tr>
-          <tr id="add1PointsField">
-            <td class="hidden_template">
-              <button
-                id="add1_1"
-                type="button"
-                class="btn btn-success p-3 match-width"
-                onclick="add1Point(this.id)"
-              >
-                Add 1 Point
-              </button>
-            </td>
-          </tr>
-          <tr id="pointsField">
-            <td class="hidden_template">
-              <h1 id="points_1" class="p-3 pointsFieldInner match-width">
-                0 Points
-              </h1>
-            </td>
-          </tr>
-          <tr id="sub1PointsField">
-            <td class="hidden_template">
-              <button
-                id="sub1_1"
-                type="button"
-                class="btn btn-danger p-3 match-width"
-                onclick="sub1Point(this.id)"
-              >
-                Subtract 1 Point
-              </button>
-            </td>
-          </tr>
-          <tr id="sub4PointsField">
-            <td class="hidden_template">
-              <button
-                id="sub4_1"
-                type="button"
-                class="btn btn-danger p-3 match-width sub4Button"
-                onclick="sub4Points(this.id)"
-              >
-                Subtract 4 Points
-              </button>
-            </td>
-          </tr>
-          <tr id="wrongAnswerField">
-            <td class="hidden_template">
-              <button
-                id="wrong_1"
-                type="button"
-                class="btn btn-danger p-3 match-width"
-                onclick="wrongAnswer(this.id)"
-              >
-                Wrong answer
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row h-25 d-inline-block"></div>
+      <div class="row" id="questionContainer">
+        <div class="col align-self-center">
+          <button
+            id="prevQuestion"
+            type="button"
+            class="btn btn-secondary p-3 match-width"
+            onclick="prevQuestion()"
+          >
+            Previous Question
+          </button>
+        </div>
+        <div class="col-6 align-self-center">
+          <h4 class="text-center" id="questionField"></h4>
+        </div>
+        <div class="col align-self-center">
+          <button
+            id="nextQuestion"
+            type="button"
+            class="btn btn-secondary p-3 match-width"
+            onclick="nextQuestion()"
+          >
+            Next Question
+          </button>
+        </div>
+      </div>
+      <div class="row h-25 d-inline-block"></div>
+      <div class="row">
+        <table class="table" id="table">
+          <thead>
+            <tr id="nameField">
+              <th scope="col" class="hidden_template">
+                <h1 class="p-3 match-width" id="name_1">Name</h1>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="add4PointsField">
+              <td class="hidden_template">
+                <button
+                  id="add4_1"
+                  type="button"
+                  class="btn btn-success p-3 match-width add4Button"
+                  onclick="add4Points(this.id)"
+                >
+                  Add 4 Points
+                </button>
+              </td>
+            </tr>
+            <tr id="add1PointsField">
+              <td class="hidden_template">
+                <button
+                  id="add1_1"
+                  type="button"
+                  class="btn btn-success p-3 match-width"
+                  onclick="add1Point(this.id)"
+                >
+                  Add 1 Point
+                </button>
+              </td>
+            </tr>
+            <tr id="pointsField">
+              <td class="hidden_template">
+                <h1 id="points_1" class="p-3 pointsFieldInner match-width">
+                  0 Points
+                </h1>
+              </td>
+            </tr>
+            <tr id="sub1PointsField">
+              <td class="hidden_template">
+                <button
+                  id="sub1_1"
+                  type="button"
+                  class="btn btn-danger p-3 match-width"
+                  onclick="sub1Point(this.id)"
+                >
+                  Subtract 1 Point
+                </button>
+              </td>
+            </tr>
+            <tr id="sub4PointsField">
+              <td class="hidden_template">
+                <button
+                  id="sub4_1"
+                  type="button"
+                  class="btn btn-danger p-3 match-width sub4Button"
+                  onclick="sub4Points(this.id)"
+                >
+                  Subtract 4 Points
+                </button>
+              </td>
+            </tr>
+            <tr id="wrongAnswerField">
+              <td class="hidden_template">
+                <button
+                  id="wrong_1"
+                  type="button"
+                  class="btn btn-danger p-3 match-width"
+                  onclick="wrongAnswer(this.id)"
+                >
+                  Wrong answer
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
