@@ -1,5 +1,5 @@
 let pointsForWrongAnswer = 4;
-let pointsForCorrectAnswer = 5;
+let pointsForCorrectAnswer = 4;
 
 function setPoints() {
   setPointsForWrongAnswer();
